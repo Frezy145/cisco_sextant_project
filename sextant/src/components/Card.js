@@ -1,6 +1,6 @@
 
-
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Fetch from './Fetch';
 
 
 const CardTitle = styled.div`
@@ -9,33 +9,39 @@ const CardTitle = styled.div`
     font-weight: normal;
     align-self: top;
     height: 18px;
-`
+`;
 
 const CardComponent = styled.div`
+    display: flex;
+    flex-direction: row;
     align-self: center;
-`
+    justify-content: space-around;
+    marging: 30px;
+`;
 
 const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 15px;
     marging: 10px;
     background-color: #e0e0e0;
     border-radius: 10px;
-    width: 300px;
-    height: 300px;
     &:hover {
     cursor: pointer;
   }
-`
+`;
 
-function Card({ title }) {
+function Card() {
     return (
         <div>
             <CardWrapper>
-                <CardTitle>{title} </CardTitle>
-                <CardComponent>Components</CardComponent>
+                <CardTitle>IPv4 and IPv6 adresses</CardTitle>
+                <CardComponent>
+                   <Fetch url='https://api.ipify.org?format=json'/>
+                   <div>----</div>
+                   <Fetch url='https://api64.ipify.org?format=json'/>
+                </CardComponent>
             </CardWrapper>
         </div>
     ); 
