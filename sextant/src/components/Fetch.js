@@ -12,7 +12,7 @@ function Fetch({url}){
             try {
                 const response = await fetch(url);
                 const {ip} = await response.json();
-                setIp(ip);
+                setIp(ip); //set the ip when got it
             } catch (err) {
                 console.log('===== error =====', err);
                 setError(true);

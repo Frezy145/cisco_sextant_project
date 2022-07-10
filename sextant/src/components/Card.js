@@ -1,29 +1,31 @@
 
 import styled from 'styled-components';
 import Fetch from './Fetch';
+import Client from './Client';
 
-
+// styled component for titles
 const CardTitle = styled.div`
     color: #263238};
     font-size: 18px;
     font-weight: normal;
-    align-self: top;
     height: 18px;
+    marging: 20px;
 `;
 
+// styled component for contents
 const CardComponent = styled.div`
-    display: flex;
-    flex-direction: row;
     align-self: center;
-    justify-content: space-around;
     marging: 30px;
+    font-size: 26px;
 `;
 
+// the wrapper just to give specific look
 const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 15px;
+    justify-content: top;
+    padding: 5px;
+    align-self: center;
     marging: 10px;
     background-color: #e0e0e0;
     border-radius: 10px;
@@ -32,16 +34,20 @@ const CardWrapper = styled.div`
   }
 `;
 
-function Card() {
+// use props to manage titles an children
+function Card({title, children}) {
     return (
         <div>
             <CardWrapper>
-                <CardTitle>IPv4 and IPv6 adresses</CardTitle>
+            
+                <CardTitle>
+                    {title}
+                </CardTitle>
+                
                 <CardComponent>
-                   <Fetch url='https://api.ipify.org?format=json'/>
-                   <div>----</div>
-                   <Fetch url='https://api64.ipify.org?format=json'/>
+                   {children}
                 </CardComponent>
+                
             </CardWrapper>
         </div>
     ); 

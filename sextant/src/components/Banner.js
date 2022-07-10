@@ -1,6 +1,7 @@
 
 import styled from 'styled-components';
 
+// just a wrapper to handle specific look
 const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
